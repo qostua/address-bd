@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Альтернативные учебные заведения</title>
+    <script src="scripts/utils/navbar.js" defer></script>
+    <script src="scripts/utils/mobile_control.js" defer></script>
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/media.css" />
+  </head>
+  <body>
+    <navbar-elem></navbar-elem>
+    <mobile-ui></mobile-ui>
+
+    <div class="container">
+      <div class="title-page__wrapper">Журнал: АЛЬТЕРНАТИВНЫЕ УЧЕБНЫЕ ЗАВЕДЕНИЯ</div>
+      <div class="main">
+        <div class="section__table__content top">
+          <div class="table__btn__wrapper">
+            <button class="btn__table">Сокращенные юр. формы</button>
+            <button class="btn__table">Все учебные заведения</button>
+          </div>
+        </div>
+
+        <section class="section__btn__menu">
+          <button class="btn__menu" data-value="введите дату начала поиска">
+            ДАТА ОТ<span class="btn__menu_value">23 СЕНТЯБРЯ 2024</span>
+          </button>
+          <button class="btn__menu" data-value="введите дату конца поиска">
+            ДАТА ДО<span class="btn__menu_value">30 СЕНТЯБРЯ 2024</span>
+          </button>
+          <button class="btn__menu js-btn-total" data-value="">
+            <span class="icon control-panel__segment-icon"></span>
+            IN TOTAL: <span class="btn__menu_value js-total-value"></span>
+          </button>
+          <button class="btn__menu js-popup-export" data-value="экспортировать данные">
+            <span class="icon control-panel__segment-icon"></span>
+            EXPORT
+          </button>
+          <button class="btn__menu js-popup-import" data-value="импортировать данные">
+            <span class="icon control-panel__segment-icon"></span>
+            IMPORT
+          </button>
+          <button class="btn__menu js-btn-deselect" data-value="Удалить юридическую форму">
+            <span class="icon control-panel__segment-icon"></span>
+            DESELECT
+          </button>
+        </section>
+        <section class="section-select">
+          <div class="select-column">
+            <label class="main__label" for="1">Тип учебного заведения</label>
+            <div class="main__select-wrapper">
+              <input
+                autocomplete="off"
+                data-active="close"
+                class="main__select js-select-type-school"
+                type="text"
+                name="type-
+            institution"
+                id="1"
+                placeholder="Выберите тип учебного заведения"
+              />
+              <button class="btn-select-reset">
+                <span class="litle-cross icon"></span>
+              </button>
+              <button class="btn-select" data-active="close">
+                <span class="icon arrow reversed"></span>
+              </button>
+              <div class="prompt-filter" data-active="close">
+                <div class="filter-wrapper js-filter-school-type">
+                  <div class="filter-value js-type-school-value">
+                    <label>
+                      По всем
+                      <input
+                        class="js-checkbox-school-type"
+                        data-type-filter=""
+                        type="checkbox"
+                        name=""
+                        id=""
+                    /></label>
+                  </div>
+                  <div class="filter-value js-type-school-value">
+                    <label
+                      >Школы, гимназии
+                      <input
+                        class="js-checkbox-school-type"
+                        data-type-filter="школа, гимназия, лицей-интернат"
+                        data-type-select="Школы, гимназии"
+                        type="checkbox"
+                        name=""
+                        id=""
+                    /></label>
+                  </div>
+                  <div class="filter-value js-type-school-value">
+                    <label
+                      >Средние-специальные учебные заведения<input
+                        class="js-checkbox-school-type"
+                        type="checkbox"
+                        name=""
+                        id=""
+                        data-type-select="Средние-специальные учебные заведения"
+                        data-type-filter="колледж, техникум, училище, учреждение"
+                    /></label>
+                  </div>
+                  <div class="filter-value js-type-school-value">
+                    <label>
+                      <span>Высшие-специальные учебные заведения</span>
+                      <input
+                        class="js-checkbox-school-type"
+                        type="checkbox"
+                        data-type-filter="институт, университет"
+                        data-type-select="Высшие-специальные учебные заведения"
+                        name=""
+                        id=""
+                    /></label>
+                  </div>
+                  <button class="btn-apply-filter">Выбрать</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="select-column">
+            <label class="main__label" for="2">Регион учебных заведений</label>
+            <div class="main__select-wrapper">
+              <input
+                autocomplete="off"
+                data-active="close"
+                class="main__select js-select-region"
+                name="region-
+            institution"
+                type="text"
+                id="2"
+                placeholder="Выберите регион"
+              />
+              <button class="btn-select-reset">
+                <span class="litle-cross icon"></span>
+              </button>
+              <button class="btn-select" data-active="close">
+                <span class="icon arrow reversed"></span>
+              </button>
+              <div class="prompt-filter" data-active="close">
+                <p class="prompt">Выберите регион или продолжите ввод</p>
+                <div class="filter-wrapper js-region-filters__wrapper">
+                  <div class="filter-value filter-region">
+                    <label>Нижний Новгород</label>
+                  </div>
+                  <div class="filter-value filter-region">
+                    <label>Нижегородская область</label>
+                  </div>
+                  <div class="filter-value filter-region">
+                    <label>Арзамас</label>
+                  </div>
+                  <div class="filter-value filter-region">
+                    <label>Балахна</label>
+                  </div>
+                  <div class="filter-value filter-region">
+                    <label>Богородск</label>
+                  </div>
+                  <div class="filter-value filter-region">
+                    <label>Бор</label>
+                  </div>
+                  <div class="filter-value filter-region">
+                    <label>Выкса</label>
+                  </div>
+                  <div class="filter-value filter-region">
+                    <label>Дзержинск</label>
+                  </div>
+                  <div class="filter-value filter-region">
+                    <label>Кстово</label>
+                  </div>
+                  <div class="filter-value filter-region">
+                    <label>Павлово</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section-search">
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Быстрый поиск по № или ID"
+              data-search-value="id"
+            />
+            <div class="prompt-search"></div>
+            <div class="btn-search search-table"><span class="icon loop"></span></div>
+            <button class="btn-reset-search">
+              <span class="litle-cross icon"></span>
+            </button>
+          </div>
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Быстрый поиск по Аббревиатуре, ИНН, году"
+              data-search-value="abbr"
+            />
+            <div class="prompt-search prompt_upper"></div>
+            <div class="btn-search search-table"><span class="icon loop"></span></div>
+            <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+          </div>
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Поиск по полному названию"
+              data-search-value="fullName"
+            />
+            <div class="prompt-search"></div>
+            <div class="btn-search search-table"><span class="icon loop"></span></div>
+            <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+          </div>
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Поиск по альтернативным названиям"
+              data-search-value="alt1"
+            />
+            <div class="prompt-search"></div>
+            <div class="btn-search search-table">
+              <span class="icon loop"></span>
+            </div>
+            <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+          </div>
+        </section>
+        <section class="section__table">
+          <div class="section__table__content bottom">
+            <h1>Альтернативные названия учебных заведений</h1>
+
+            <div class="table__btn__wrapper">
+              <button class="btn__table">Сокращенные юр. формы</button>
+              <button class="btn__table">Все учебные заведения</button>
+            </div>
+          </div>
+
+          <section class="table_desktop__wrapper">
+            <table class="table_desktop">
+              <tr class="tr_empty">
+                <td>
+                  №
+                  <p class="sort-table" data-sort-value="id">ID</p>
+                </td>
+                <td>EDIT</td>
+                <td>DEL</td>
+                <td>
+                  <span class="sort-table" data-sort-value="abbr">Аббревиатура</span>
+                  <span class="sort-table" data-sort-value="inn">ИНН</span>,
+                  <span class="sort-table" data-sort-value="year">Год</span>
+                </td>
+                <td class="sort-table" data-sort-value="fullName">Полное название</td>
+                <td colspan="6" class="sort-table" data-sort-value="alt1">
+                  Альтернативные названия
+                </td>
+              </tr>
+              <tr class="tr_empty">
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="number" class="input-search table" data-search-value="id" />
+                  <div class="prompt-search"></div>
+                  <button class="btn-reset-search reset_small">
+                    <span class="litle-cross icon"></span>
+                  </button>
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="abbr" />
+                  <div class="prompt-search prompt_upper"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="fullName" />
+                  <div class="prompt-search"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="alt1" />
+                  <div class="prompt-search prompt_upper"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="alt2" />
+                  <div class="prompt-search"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="alt3" />
+                  <div class="prompt-search prompt_upper"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="alt4" />
+                  <div class="prompt-search prompt_upper"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="alt5" />
+                  <div class="prompt-search prompt_upper"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="alt6" />
+                  <div class="prompt-search prompt_upper"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+              </tr>
+
+              <tbody class="tr-wrapper"></tbody>
+            </table>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <!-- Попап импорт -->
+    <div class="overlay import" style="display: none">
+      <div class="popup">
+        <div class="popup-close__wrapper">
+          <button class="btn-close-popup popup-close"><span class="icon cross"></span></button>
+        </div>
+        <div class="popup__title">
+          <h2>Импорт вакансий</h2>
+        </div>
+        <div class="input__wrapper">
+          <label>Выберите путь к файлу</label>
+          <label class="pseudo-input">
+            <span class="icon" style="color: gray; font-size: 20px"></span>
+            <p class="placeholder">Выбрать файл</p>
+            <p class="filename"></p>
+            <input class="input-import" style="display: none" type="file" accept=".xlsx, .xls" />
+          </label>
+        </div>
+        <div class="popup-buttons">
+          <button class="btn-download btn__main popup-close">Выгрузить</button>
+          <button class="btn-cancel btn__main popup-close">Отменить</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Попап экспорт-->
+    <div class="overlay export" style="display: none">
+      <div class="popup">
+        <div class="popup-close__wrapper">
+          <button class="btn-close-popup popup-close"><span class="icon cross"></span></button>
+        </div>
+        <div class="popup__title">
+          <h2>Экспорт вакансий</h2>
+        </div>
+        <div class="input__wrapper">
+          <label>Выберите путь к файлу</label>
+          <label class="pseudo-input">
+            <span class="icon" style="color: gray; font-size: 20px"></span>
+            <input type="text" placeholder="Выбрать файл" class="input-export" />
+          </label>
+        </div>
+        <div class="popup-buttons">
+          <button class="btn-download-export btn__main">
+            <a
+              href="xlsx/data.xlsx"
+              class="link-download"
+              filename="xlsx, xls"
+              download="Альтернативные названия учебных заведений"
+              >Выгрузить</a
+            >
+          </button>
+          <button class="btn-cancel btn__main popup-close">Отменить</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Попап удалить-->
+    <div class="overlay popup-delete" style="display: none">
+      <div class="popup">
+        <div class="popup-close__wrapper">
+          <button class="btn-close-popup popup-close"><span class="icon cross"></span></button>
+        </div>
+        <div class="popup__title">
+          <h2>Удалить учебное заведение</h2>
+        </div>
+        <p class="warning-text">
+          <span class="icon" style="color: #d11521"></span>
+          Вы собираетесь удалить учебное заведение <span class="school-id"></span> -
+          <span class="school-name"></span>
+        </p>
+        <div class="popup-buttons">
+          <button class="btn-delete btn__main">OK</button>
+          <button class="btn-cancel btn__main popup-close">Отменить</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Попап редактировать -->
+    <div class="overlay popup-edit" style="display: none">
+      <form class="popup popup-edit-wrapper">
+        <div class="popup-close__wrapper">
+          <button class="btn-close-popup popup-close"><span class="icon cross"></span></button>
+        </div>
+
+        <div class="popup__title">
+          <h2>Редактировать альтернативные названия</h2>
+        </div>
+        <div class="wrap-forms-edit">
+          <div class="popup-edit-content-wrapper" data-edit-form-id="1"></div>
+        </div>
+        <button class="btn-add-alt">+ Добавить альтернативное</button>
+        <div class="popup-buttons">
+          <button class="btn-save btn__main" disabled>Сохранить изменения</button>
+          <button class="btn-cancel btn__main popup-close">Отменить</button>
+        </div>
+      </form>
+    </div>
+    <script src="scripts/app.js" type="module"></script>
+  </body>
+</html>
