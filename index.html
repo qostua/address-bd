@@ -3,136 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Альтернативные учебные заведения</title>
+    <title>Адреса</title>
     <script src="scripts/utils/navbar.js" defer></script>
     <script src="scripts/utils/mobile_control.js" defer></script>
 
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/media.css" />
+
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
   </head>
   <body>
     <navbar-elem></navbar-elem>
     <mobile-ui></mobile-ui>
 
     <div class="container">
-      <div class="title-page__wrapper">Журнал: АЛЬТЕРНАТИВНЫЕ УЧЕБНЫЕ ЗАВЕДЕНИЯ</div>
+      <h1 class="big-title" id="big-title">Журнал: АДРЕСА</h1>
+      <h1 class="big-title-pc" id="big-title-pc">АДРЕСА</h1>
+    </div>
+
+    <div class="container">
+<!--      <div class="title-page__wrapper">Журнал: АДРЕСА</div>-->
       <div class="main">
-        <div class="section__table__content top">
-          <div class="table__btn__wrapper">
-            <button class="btn__table">Сокращенные юр. формы</button>
-            <button class="btn__table">Все учебные заведения</button>
-          </div>
-        </div>
+<!--        <div class="section__table__content top">-->
+<!--          <div class="table__btn__wrapper">-->
+<!--            <button class="btn__table">Сокращенные юр. формы</button>-->
+<!--            <button class="btn__table">Все учебные заведения</button>-->
+<!--          </div>-->
+<!--        </div>-->
 
         <section class="section__btn__menu">
-          <button class="btn__menu" data-value="введите дату начала поиска">
-            ДАТА ОТ<span class="btn__menu_value">23 СЕНТЯБРЯ 2024</span>
-          </button>
-          <button class="btn__menu" data-value="введите дату конца поиска">
-            ДАТА ДО<span class="btn__menu_value">30 СЕНТЯБРЯ 2024</span>
-          </button>
-          <button class="btn__menu js-btn-total" data-value="">
+          <button class="btn__menu js-btn-add" data-value="ДОБАВИТЬ АДРЕС">
             <span class="icon control-panel__segment-icon"></span>
-            IN TOTAL: <span class="btn__menu_value js-total-value"></span>
+            +ADD NEW ONE
           </button>
-          <button class="btn__menu js-popup-export" data-value="экспортировать данные">
-            <span class="icon control-panel__segment-icon"></span>
-            EXPORT
+          <button class="btn__menu js-btn-transform" data-value="{{TO DO}}">
+            <span class="icon control-panel__segment-icon"></span>
+            ПРЕОБРАЗОВАНИЯ
           </button>
-          <button class="btn__menu js-popup-import" data-value="импортировать данные">
+          <button class="btn__menu js-popup-import" data-value="ИМПОРТИРОВАТЬ">
             <span class="icon control-panel__segment-icon"></span>
             IMPORT
           </button>
-          <button class="btn__menu js-btn-deselect" data-value="Удалить юридическую форму">
+          <button class="btn__menu js-popup-export" data-value="ЭКСПОРТИРОВАТЬ">
+            <span class="icon control-panel__segment-icon"></span>
+            EXPORT
+          </button>
+          <button class="btn__menu js-btn-deselect" data-value="ОЧИСТИТЬ ПОЛЯ">
             <span class="icon control-panel__segment-icon"></span>
             DESELECT
           </button>
         </section>
         <section class="section-select">
           <div class="select-column">
-            <label class="main__label" for="1">Тип учебного заведения</label>
+            <label class="main__label" for="2">Тип добавления</label>
             <div class="main__select-wrapper">
               <input
                 autocomplete="off"
                 data-active="close"
-                class="main__select js-select-type-school"
-                type="text"
-                name="type-
-            institution"
-                id="1"
-                placeholder="Выберите тип учебного заведения"
-              />
-              <button class="btn-select-reset">
-                <span class="litle-cross icon"></span>
-              </button>
-              <button class="btn-select" data-active="close">
-                <span class="icon arrow reversed"></span>
-              </button>
-              <div class="prompt-filter" data-active="close">
-                <div class="filter-wrapper js-filter-school-type">
-                  <div class="filter-value js-type-school-value">
-                    <label>
-                      По всем
-                      <input
-                        class="js-checkbox-school-type"
-                        data-type-filter=""
-                        type="checkbox"
-                        name=""
-                        id=""
-                    /></label>
-                  </div>
-                  <div class="filter-value js-type-school-value">
-                    <label
-                      >Школы, гимназии
-                      <input
-                        class="js-checkbox-school-type"
-                        data-type-filter="школа, гимназия, лицей-интернат"
-                        data-type-select="Школы, гимназии"
-                        type="checkbox"
-                        name=""
-                        id=""
-                    /></label>
-                  </div>
-                  <div class="filter-value js-type-school-value">
-                    <label
-                      >Средние-специальные учебные заведения<input
-                        class="js-checkbox-school-type"
-                        type="checkbox"
-                        name=""
-                        id=""
-                        data-type-select="Средние-специальные учебные заведения"
-                        data-type-filter="колледж, техникум, училище, учреждение"
-                    /></label>
-                  </div>
-                  <div class="filter-value js-type-school-value">
-                    <label>
-                      <span>Высшие-специальные учебные заведения</span>
-                      <input
-                        class="js-checkbox-school-type"
-                        type="checkbox"
-                        data-type-filter="институт, университет"
-                        data-type-select="Высшие-специальные учебные заведения"
-                        name=""
-                        id=""
-                    /></label>
-                  </div>
-                  <button class="btn-apply-filter">Выбрать</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="select-column">
-            <label class="main__label" for="2">Регион учебных заведений</label>
-            <div class="main__select-wrapper">
-              <input
-                autocomplete="off"
-                data-active="close"
-                class="main__select js-select-region"
-                name="region-
-            institution"
+                class="main__select js-select-type-add"
+                name="type-add"
                 type="text"
                 id="2"
-                placeholder="Выберите регион"
+                placeholder="Выберите тип добавления в БД"
               />
               <button class="btn-select-reset">
                 <span class="litle-cross icon"></span>
@@ -141,37 +76,15 @@
                 <span class="icon arrow reversed"></span>
               </button>
               <div class="prompt-filter" data-active="close">
-                <p class="prompt">Выберите регион или продолжите ввод</p>
-                <div class="filter-wrapper js-region-filters__wrapper">
-                  <div class="filter-value filter-region">
-                    <label>Нижний Новгород</label>
+                <div class="filter-wrapper js-type-add-filters__wrapper">
+                  <div class="filter-value js-type-add-value">
+                    <label>По всем</label>
                   </div>
-                  <div class="filter-value filter-region">
-                    <label>Нижегородская область</label>
+                  <div class="filter-value js-type-add-value">
+                    <label>XLSX</label>
                   </div>
-                  <div class="filter-value filter-region">
-                    <label>Арзамас</label>
-                  </div>
-                  <div class="filter-value filter-region">
-                    <label>Балахна</label>
-                  </div>
-                  <div class="filter-value filter-region">
-                    <label>Богородск</label>
-                  </div>
-                  <div class="filter-value filter-region">
-                    <label>Бор</label>
-                  </div>
-                  <div class="filter-value filter-region">
-                    <label>Выкса</label>
-                  </div>
-                  <div class="filter-value filter-region">
-                    <label>Дзержинск</label>
-                  </div>
-                  <div class="filter-value filter-region">
-                    <label>Кстово</label>
-                  </div>
-                  <div class="filter-value filter-region">
-                    <label>Павлово</label>
+                  <div class="filter-value js-type-add-value">
+                    <label>DaData</label>
                   </div>
                 </div>
               </div>
@@ -196,10 +109,10 @@
             <input
               class="input-search"
               type="text"
-              placeholder="Быстрый поиск по Аббревиатуре, ИНН, году"
-              data-search-value="abbr"
+              placeholder="Быстрый поиск по региону"
+              data-search-value="region"
             />
-            <div class="prompt-search prompt_upper"></div>
+            <div class="prompt-search"></div>
             <div class="btn-search search-table"><span class="icon loop"></span></div>
             <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
           </div>
@@ -207,7 +120,7 @@
             <input
               class="input-search"
               type="text"
-              placeholder="Поиск по полному названию"
+              placeholder="Поиск по типу региона"
               data-search-value="fullName"
             />
             <div class="prompt-search"></div>
@@ -218,8 +131,151 @@
             <input
               class="input-search"
               type="text"
-              placeholder="Поиск по альтернативным названиям"
-              data-search-value="alt1"
+              placeholder="Поиск по району региона"
+              data-search-value="regionDistrict"
+            />
+            <div class="prompt-search"></div>
+            <div class="btn-search search-table">
+              <span class="icon loop"></span>
+            </div>
+            <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+          </div>
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Поиск по деревне региона"
+              data-search-value="regionVillage"
+            />
+            <div class="prompt-search"></div>
+            <div class="btn-search search-table">
+              <span class="icon loop"></span>
+            </div>
+            <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+          </div>
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Поиск по типу деревни"
+              data-search-value="villageType"
+            />
+            <div class="prompt-search"></div>
+            <div class="btn-search search-table">
+              <span class="icon loop"></span>
+            </div>
+            <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+          </div>
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Поиск по городу"
+              data-search-value="city"
+            />
+            <div class="prompt-search"></div>
+            <div class="btn-search search-table">
+              <span class="icon loop"></span>
+            </div>
+            <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+          </div>
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Поиск по деревне в городе"
+              data-search-value="villageInCity"
+            />
+            <div class="prompt-search"></div>
+            <div class="btn-search search-table">
+              <span class="icon loop"></span>
+            </div>
+            <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+          </div>
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Поиск по типу деревни в городе"
+              data-search-value="villageInCityType"
+            />
+            <div class="prompt-search"></div>
+            <div class="btn-search search-table">
+              <span class="icon loop"></span>
+            </div>
+            <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+          </div>
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Поиск по улице"
+              data-search-value="street"
+            />
+            <div class="prompt-search"></div>
+            <div class="btn-search search-table">
+              <span class="icon loop"></span>
+            </div>
+            <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+          </div>
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Поиск по типу улицы"
+              data-search-value="streetType"
+            />
+            <div class="prompt-search"></div>
+            <div class="btn-search search-table">
+              <span class="icon loop"></span>
+            </div>
+            <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+          </div>
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Поиск по районам города"
+              data-search-value="districtsCity"
+            />
+            <div class="prompt-search"></div>
+            <div class="btn-search search-table">
+              <span class="icon loop"></span>
+            </div>
+            <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+          </div>
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Поиск по номеру дома, типу строения, номеру строения"
+              data-search-value="address"
+            />
+            <div class="prompt-search"></div>
+            <div class="btn-search search-table">
+              <span class="icon loop"></span>
+            </div>
+            <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+          </div>
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Поиск по метро"
+              data-search-value="subway"
+            />
+            <div class="prompt-search"></div>
+            <div class="btn-search search-table">
+              <span class="icon loop"></span>
+            </div>
+            <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+          </div>
+          <div class="search-wrapper">
+            <input
+              class="input-search"
+              type="text"
+              placeholder="Поиск по индексу, широте, долготе"
+              data-search-value="coordinates"
             />
             <div class="prompt-search"></div>
             <div class="btn-search search-table">
@@ -229,14 +285,14 @@
           </div>
         </section>
         <section class="section__table">
-          <div class="section__table__content bottom">
-            <h1>Альтернативные названия учебных заведений</h1>
+<!--          <div class="section__table__content bottom">-->
+<!--            <h1>Адреса</h1>-->
 
-            <div class="table__btn__wrapper">
-              <button class="btn__table">Сокращенные юр. формы</button>
-              <button class="btn__table">Все учебные заведения</button>
-            </div>
-          </div>
+<!--            <div class="table__btn__wrapper">-->
+<!--              <button class="btn__table">Сокращенные юр. формы</button>-->
+<!--              <button class="btn__table">Все учебные заведения</button>-->
+<!--            </div>-->
+<!--          </div>-->
 
           <section class="table_desktop__wrapper">
             <table class="table_desktop">
@@ -247,78 +303,245 @@
                 </td>
                 <td>EDIT</td>
                 <td>DEL</td>
-                <td>
-                  <span class="sort-table" data-sort-value="abbr">Аббревиатура</span>
-                  <span class="sort-table" data-sort-value="inn">ИНН</span>,
-                  <span class="sort-table" data-sort-value="year">Год</span>
+                <td class="sort-table" data-sort-value="region">Регион</td>
+                <td class="sort-table" data-sort-value="regionType">Тип <br> региона</td>
+                <td class="sort-table" data-sort-value="regionDistrict">Район региона</td>
+                <td class="sort-table" data-sort-value="regionVillage">Деревня региона</td>
+                <td class="sort-table" data-sort-value="villageType">Тип деревни</td>
+                <td class="sort-table" data-sort-value="city">Город</td>
+                <td class="sort-table" data-sort-value="villageInCity">Деревня в городе</td>
+                <td class="sort-table" data-sort-value="villageInCityType">Тип деревни в городе</td>
+                <td class="sort-table" data-sort-value="street">Улица</td>
+                <td class="sort-table" data-sort-value="streetType">Тип улицы</td>
+                <td class="sort-table" data-sort-value="districtsCity">Районы <br> города</td>
+                <td class="sort-table" data-sort-value="address">
+                  № дома. <br>
+                  Тип строения. <br>
+                  Номер <br>
+                  строения
                 </td>
-                <td class="sort-table" data-sort-value="fullName">Полное название</td>
-                <td colspan="6" class="sort-table" data-sort-value="alt1">
-                  Альтернативные названия
+                <td class="sort-table" data-sort-value="subway">Метро</td>
+                <td class="sort-table" data-sort-value="coordinates">
+                  Индекс, <br>
+                  широта, <br>
+                  долгота
                 </td>
               </tr>
               <tr class="tr_empty">
-                <td>
-                  <div class="search-table"><span class="icon loop"></span></div>
-                  <input type="number" class="input-search table" data-search-value="id" />
-                  <div class="prompt-search"></div>
-                  <button class="btn-reset-search reset_small">
-                    <span class="litle-cross icon"></span>
-                  </button>
-                </td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td>
                   <div class="search-table"><span class="icon loop"></span></div>
-                  <input type="text" class="input-search table" data-search-value="abbr" />
-                  <div class="prompt-search prompt_upper"></div>
-                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
-                </td>
-                <td>
-                  <div class="search-table"><span class="icon loop"></span></div>
-                  <input type="text" class="input-search table" data-search-value="fullName" />
+                  <input type="text" class="input-search table" data-search-value="region" />
                   <div class="prompt-search"></div>
                   <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
                 </td>
                 <td>
                   <div class="search-table"><span class="icon loop"></span></div>
-                  <input type="text" class="input-search table" data-search-value="alt1" />
-                  <div class="prompt-search prompt_upper"></div>
-                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
-                </td>
-                <td>
-                  <div class="search-table"><span class="icon loop"></span></div>
-                  <input type="text" class="input-search table" data-search-value="alt2" />
+                  <input type="text" class="input-search table" data-search-value="regionType" />
                   <div class="prompt-search"></div>
                   <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
                 </td>
                 <td>
                   <div class="search-table"><span class="icon loop"></span></div>
-                  <input type="text" class="input-search table" data-search-value="alt3" />
-                  <div class="prompt-search prompt_upper"></div>
+                  <input type="text" class="input-search table" data-search-value="regionDistrict" />
+                  <div class="prompt-search"></div>
                   <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
                 </td>
                 <td>
                   <div class="search-table"><span class="icon loop"></span></div>
-                  <input type="text" class="input-search table" data-search-value="alt4" />
-                  <div class="prompt-search prompt_upper"></div>
+                  <input type="text" class="input-search table" data-search-value="regionVillage" />
+                  <div class="prompt-search"></div>
                   <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
                 </td>
                 <td>
                   <div class="search-table"><span class="icon loop"></span></div>
-                  <input type="text" class="input-search table" data-search-value="alt5" />
-                  <div class="prompt-search prompt_upper"></div>
+                  <input type="text" class="input-search table" data-search-value="villageType" />
+                  <div class="prompt-search"></div>
                   <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
                 </td>
                 <td>
                   <div class="search-table"><span class="icon loop"></span></div>
-                  <input type="text" class="input-search table" data-search-value="alt6" />
-                  <div class="prompt-search prompt_upper"></div>
+                  <input type="text" class="input-search table" data-search-value="city" />
+                  <div class="prompt-search"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="villageInCity" />
+                  <div class="prompt-search"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="villageInCityType" />
+                  <div class="prompt-search"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="street" />
+                  <div class="prompt-search"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="streetType" />
+                  <div class="prompt-search"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="districtsCity" />
+                  <div class="prompt-search"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="address" />
+                  <div class="prompt-search"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="subway" />
+                  <div class="prompt-search"></div>
+                  <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
+                </td>
+                <td>
+                  <div class="search-table"><span class="icon loop"></span></div>
+                  <input type="text" class="input-search table" data-search-value="coordinates" />
+                  <div class="prompt-search"></div>
                   <button class="btn-reset-search"><span class="litle-cross icon"></span></button>
                 </td>
               </tr>
 
-              <tbody class="tr-wrapper"></tbody>
+              <tbody class="tr-wrapper">
+              <tr class="tr-school" data-value-id="201">
+                <td class="table_mobile-thead">
+                  <div class="thead-container">
+                    <div class="thead-mobile-name">Нижегородский техникум городского хозяйства и предпринимательства</div>
+                    <div class="icons-wrapper-thead">
+                      <div class="thead-icon">
+                        <div class="table-icon edit-btn" data-value="Редактировать" data-value-id="201">
+                          <span class="icon control-edit edit"></span>
+                        </div>
+                      </div>
+                      <div class="thead-icon">
+                        <div class="table-icon del-btn" data-value="Удалить" data-value-id="201" data-full-name="Нижегородский техникум городского хозяйства и предпринимательства">
+                          <span class="icon control-edit delete"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+
+                <td data-prop="№">
+                  <div class="td-name">№</div>
+                  <p class="td-num">1</p>
+                  <p class="table__value__id">201</p>
+                </td>
+
+                <td class="td-wrapper-icon">
+                  <div class="table-icon edit-btn" data-value="Редактировать" data-value-id="201">
+                    <span class="icon control-edit edit"></span>
+                  </div>
+                </td>
+
+                <td class="td-wrapper-icon">
+                  <div class="table-icon del-btn" data-value="Удалить" data-value-id="201" data-full-name="Нижегородский техникум городского хозяйства и предпринимательства">
+                    <span class="icon control-edit delete"></span>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="td-name">Полное название</div>
+                  <p class="region"> Нижегородская область</p>
+                </td>
+
+                <td>
+                  <div class="td-name">Полное название</div>
+                  <p class="regionType"></p>
+                </td>
+
+                <td>
+                  <div class="td-name">Полное название</div>
+                  <p class="regionDistrict">Кстовский район</p>
+                </td>
+
+                <td>
+                  <div class="td-name">Полное название</div>
+                  <p class="regionVillage"></p>
+                </td>
+
+                <td>
+                  <div class="td-name">Полное название</div>
+                  <p class="villageType"></p>
+                </td>
+
+                <td>
+                  <div class="td-name">Полное название</div>
+                  <p class="city">Анкудиновка</p>
+                </td>
+
+                <td>
+                  <div class="td-name">Полное название</div>
+                  <p class="villageInCity"></p>
+                </td>
+
+                <td>
+                  <div class="td-name">Полное название</div>
+                  <p class="villageInCityType"></p>
+                </td>
+
+                <td>
+                  <div class="td-name">Полное название</div>
+                  <p class="street">Лесная</p>
+                </td>
+
+                <td>
+                  <div class="td-name">Полное название</div>
+                  <p class="streetType"></p>
+                </td>
+
+                <td>
+                  <div class="td-name">Полное название</div>
+                  <p class="districtsCity"></p>
+                </td>
+
+                <td>
+                  <div class="td-name">
+                    ИНН
+                    Аббревиатура
+                    Год
+                  </div>
+                  <div class="td-info-wrapper">
+                    <p class="addressHouse">92а</p>
+                    <p class=""></p>
+                    <p class=""></p>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="td-name">Полное название</div>
+                  <p class="districtsCity"></p>
+                </td>
+
+                <td>
+                  <div class="td-name">
+                    ИНН
+                    Аббревиатура
+                    Год
+                  </div>
+                  <div class="td-info-wrapper">
+                    <p class="index">607680</p>
+                    <p class="coordinatesX">56,23793297</p>
+                    <p class="coordinatesY">44,04318833</p>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
             </table>
           </section>
         </section>
